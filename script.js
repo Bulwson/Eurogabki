@@ -1,4 +1,4 @@
-const mapurl = "http://europe-west1-pracabezgranic-backend.cloudfunctions.net/weather/location-info?address="
+const mapurl = "https://europe-west1-pracabezgranic-backend.cloudfunctions.net/weather/location-info?address="
 const weatherurl = "https://europe-west1-pracabezgranic-backend.cloudfunctions.net/weather"
 
 const makeUrlGoogle = () => {
@@ -17,7 +17,7 @@ const getJsonFromUrl = async (url) => {
 }
 
 const makeUrlWeather = (lat, lng) => {
-    return weatherurl+"/"+lat+"/"+lng
+    return weatherurl + "/" + lat + "/" + lng
 }
 
 const fahrenheitToCelsius = (temperature) => (temperature - 32) * 5 / 9
