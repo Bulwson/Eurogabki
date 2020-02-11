@@ -1,0 +1,43 @@
+html{
+    font-family: 'comic sans ms';
+}
+body{
+    background-image: url('cumulus-cloud.jpg');
+}
+#main{
+    position: relative;
+    left: 30%;
+    top:20vh;
+    border-radius: 6px;
+    width: 40%;
+    height: 40vh;
+    background-color: white;
+}
+h2{
+    margin:auto;
+    position: relative;
+    left:15%;
+    padding: 10px;
+}
+button{
+    position: relative;
+    left: 15%;
+    top:5%;
+    color:white;
+    background-color: blue;
+    border-color:lightblue;
+    border-radius: 4px;
+}
+input{
+    margin:auto;
+    width: 50%;
+    position: relative;
+    left : 15%;
+    padding-right: 50px;
+    border-radius: 4px;
+    border: 2px solid lightgray;
+}
+p{
+    text-align: center;
+    margin-top: 40px;
+}
