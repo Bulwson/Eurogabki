@@ -17,15 +17,23 @@ const fahrenheitToCelsius = (temperature) =>
     (temperature - 32) * 5 / 9
 
 const doStuff = async () => {
+    document.getElementById("download").style.display = "block"
     let mapData = await getJsonFromUrl(makeUrlGoogle())
-    let { lat, lng } = mapData.results[0].geometry.location
-    let weatherData = await getJsonFromUrl(makeUrlWeather(lat, lng))
-    let apparentTemperature = Math.round(fahrenheitToCelsius(weatherData.currently.apparentTemperature) * 10) / 10
-    let temperature = Math.round(fahrenheitToCelsius(weatherData.currently.temperature) * 10) / 10
-    let dailyWeather = weatherData.hourly.summary
-    let summaryWeather = weatherData.currently.summary
-    document.getElementById("place").innerHTML = mapData.results[0].formatted_address
-    document.getElementById("aboutweather").innerHTML = `It's ${temperature}℃ but it feels like ${apparentTemperature}℃.${dailyWeather}${summaryWeather}`
+    if (mapData.status != "OK") {
+        document.getElementById("place").innerHTML = "There is no place like that"
+        document.getElementById("aboutweather").innerHTML = ""
+        document.getElementById("download").style.display = "none"
+    } else {
+        let { lat, lng } = mapData.results[0].geometry.location
+        let weatherData = await getJsonFromUrl(makeUrlWeather(lat, lng))
+        document.getElementById("download").style.display = "none"
+        let apparentTemperature = Math.round(fahrenheitToCelsius(weatherData.currently.apparentTemperature) * 10) / 10
+        let temperature = Math.round(fahrenheitToCelsius(weatherData.currently.temperature) * 10) / 10
+        let dailyWeather = weatherData.hourly.summary
+        let summaryWeather = weatherData.currently.summary
+        document.getElementById("place").innerHTML = mapData.results[0].formatted_address
+        document.getElementById("aboutweather").innerHTML = `It's ${temperature}℃ but it feels like ${apparentTemperature}℃.${dailyWeather}${summaryWeather}`
+    }
 }
 
 document.addEventListener('keydown', event => {

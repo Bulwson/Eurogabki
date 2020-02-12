@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Weather</title>
     <script src="script.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
+
 <body>
+
     <div id="main">
+
+
         <h2>Check weather before you go!</h1>
-        <input type="text" id="address" placeholder="Search...">
-        <button onclick="doStuff()">Check</button>
-        <p id="place"></p>
-        <p id="aboutweather"></p>
+            <input type="text" id="address" placeholder="Search...">
+            <button onclick="doStuff()">Check</button>
+            <div id="download">
+                <div class="lds-ring">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <p id="place"></p>
+
+            <p id="aboutweather"></p>
     </div>
 </body>
+
 </html>
